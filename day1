@@ -1,0 +1,195 @@
+a=50
+b=60
+c=10
+a,b,c = map(int,input("enter the numbers: ").split(" "))
+if a<c:
+    if b<c:
+        print(c)
+    else:
+        print(b)
+elif a<b:
+    print(b)
+else:
+    print(a)
+
+
+if a%2==0:
+    print("even")
+else:
+    print("odd")
+    
+
+
+age=int(input("age:"))
+if age>=18:
+    if age>75:
+        print("risk life")
+        if age>40:
+            print("panic attack")
+else:
+    print("not allowed")
+
+water melon problem
+melon=int(input("enter the number:"))
+if melon>2:
+    if melon%2==0:
+        print("yes")
+        x=melon//2
+        if x%2==0:
+            print(x,x)
+        else:
+            print(x-1,x+1)
+    else:
+        print("no")
+else:
+    print("no")       
+
+elephant
+
+
+cord_house=int(input("enter the number:"))
+if cord_house%5==0:
+    x=cord_house//5
+    print(x,"is distance")
+else:
+    print(cord_house//5+1)     
+    
+    
+num=int(input("number:"))
+if num%3==0:
+    if num%5==0:
+        print("fizzbuzz")
+    else:
+        print("fizz")
+else:
+    print("buzz")
+
+num=int(input("number:"))
+if num%7==0:
+    print("fizz")
+    if num%10==7:
+        print("fizzbuzz")
+else:
+    print("not a buzz")
+
+
+num=int(input("number:"))
+if num%11==0:
+    print("yes")
+else:
+    print("no")
+    
+
+year=int(input("year:"))
+if year%4==0 or year%100==0:
+    print("leap year")
+else:
+    print("not a leap year")
+
+a=0
+for i in range(50,100+1,2):
+    print(i,end=" ")
+    a+=1
+print(a)
+
+num=int(input("enter the number:"))
+for i in range(2,num):
+    if num%i==0:
+        print("not a prime")
+        break
+else:
+    print("prime")
+    
+
+num=int(input("enter the number:"))
+flag=0
+a=0
+for i in range(2,num):
+    if num%i==0:
+        flag+=1
+    else:
+        a+=1
+if flag==0:
+    print("prime")
+    print(a)
+else:
+    print("not a prime")
+
+def isprime(n):
+    for i in range(2,(n//2)+1):
+        if n%i==0:
+            return False
+    return True
+l=int(input())
+r=int(input())
+c=0
+for i in range(l,r+1):
+    if isprime(i):
+        c+=1
+print(c)
+
+d=0
+num=int(input("number:"))
+while (num!=0):
+    d+=num%10
+    num//=10
+print(d)
+
+
+count=0
+num=int(input("number:"))
+while (num!=0):
+    num//=10
+    count+=1
+print(count)
+
+
+wrong
+c=0
+b=0
+num=int(input("enter the number:"))
+a=len(str(num))
+print(a)
+while(num!=0):
+    d=num%10
+    b=a*10+d
+    c+=b
+    num//=10
+print(c)
+   
+   
+   
+reverse
+rev=0
+num=int(input("number:"))
+while (num!=0):
+    d=num%10
+    rev=rev*10+d
+    num//=10
+print(rev)
+
+age
+count=0
+l_age=1
+b_age=1
+while(l_age<=b_age):
+    l_age*=3
+    b_age*=2
+    count+=1
+print(l_age,b_age)
+print(count)
+
+
+sum=0
+num=int(input("number:"))
+while(num!=0):
+    d=num%10
+    sum+=d
+    num//=10
+print(sum)
+for i in range(2,int((sum/2)+1)):
+    if sum%i==0:
+        print("not googly")
+        break
+    else:
+        print("googly")
