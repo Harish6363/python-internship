@@ -1,0 +1,189 @@
+counting number of times the no is repeated
+y=578378923
+s=str(y)
+l=[]
+for i in s:
+    if i not in l:
+        l.append(i)
+a=len(s)
+b=len(l)
+c=a-b
+print(c)
+
+
+counting the no of times the is repeted
+data,digit=map(int,input().split(" "))
+a=str(data)
+b=str(digit)
+c=0
+for i in a:
+    if i==b:
+        c+=1
+print(c)
+
+
+counting the no of times the is repeted
+n=22455564632
+s=str(n)
+m=3
+d={}
+for i in s:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+res=0
+for i in d:
+    if d[i]==m:
+        res=i
+print(res)
+
+
+total distance (difference and add)
+a=int(input("enter the number:"))
+b=[]
+for i in range(a):
+    b.append(int(input("enter the number in the list")))
+sum=0
+for i in range((len(b)-1)):
+    s=abs(b[i]-b[i+1])
+    sum+=s
+print(sum)
+
+
+
+print first even numbers then odd numbers
+l=[10,98,3,33,12,22,21,11]
+l1=[]
+n=len(l)
+i=0
+while i<n:
+    if l[i]%2!=0:
+        ele=l.pop(i)
+        l1.append(ele)
+        n-=1
+    else:
+        i+=1
+l=l+l1
+print(l)
+
+
+
+
+
+
+
+counting only special character
+a=gasgg54@#vscsd!s*
+s=input("enter the string")
+c=0
+for i in s:
+    if i.isalnum():
+        c+=1
+d=len(s)-c
+print(d)
+
+
+
+perfect square
+import math
+l=[79,77,54,81,48,34,25,16]
+c=0
+for i in l:
+    root=int(math.sqrt(i))
+    if root*root==i:
+        c+=1
+print(c)
+
+
+
+perfect square
+l=[79,77,54,81,48,34,25,16]
+c=0
+
+for i in l:
+    root=int(i**0.5)
+    if root*root==i:
+        c+=1
+print(c)
+    
+ 
+ 
+ 
+ 
+missing aplhabets
+s="shekar"
+for i in range(1,27):
+    if chr(96+i) not in s:
+        print(chr(96+i),end=" ")        
+
+
+
+
+
+finding the maximum sum of the numbers either it can be postive or negative
+l=[7,9,-3,8,-6,-7,8,10]
+l.sort(reverse=True)
+sum=l[0]+l[1]
+print(sum)
+
+
+
+l=[7,9,-3,8,-6,-7,8,10]
+l.sort()
+p1=l[-1]*l[-2]
+p2=l[0]*l[1]
+if p1>p2:
+    print(l[-1]+l[-2])
+else:
+    print(l[0]+l[1])
+
+
+
+
+
+a="D"
+key=3
+b=ord(a)+key
+print(chr(b))
+    
+
+
+
+finding the next chr by the key element   
+s1="abcdefghijklmnopqrstuvwxyz"
+s2="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+a="D"
+key=3
+if a.islower():
+    idx=s1.index(a)
+    idx=idx+key
+    b=idx%26
+    print(s1[b])
+else:
+    idx=s2.index(a)
+    idx=idx+key
+    b=idx%26
+    print(s2[b])
+
+
+
+
+range between the numbers in a given list
+a,b,c=6,30,50
+l=[29,38,12,48,39,55]
+for i in l:
+    if b<=i and c>=i:
+        print(i,end=" ")
+
+
+
+num,start,end=map(int,input().split())
+val=list(map(int,input().split()))
+low=min(start,end)
+high=max(start,end)
+ans=[]
+for num in val:
+    if low<=num<=high:
+        ans.append(num)
+print(ans)
