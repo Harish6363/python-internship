@@ -1,0 +1,44 @@
+#power of a number
+# def p(a,b):
+#     if b==0:
+#         return 1
+#     return a*p(a,b-1)
+# a,b=map(int,input().split())
+# print(p(a,b))
+
+
+
+
+# def f(n):
+#     if n==1:
+#         return 0
+#     elif n%2==0:
+#         return 1+f(n//2)
+#     else:
+#         return 1+min(f(n-1),f(n+1))
+# n=int(input("enter the number:"))
+# print(f(n))
+
+
+
+
+#stack(it is collecton of elements and it follows lifo priniciple)
+
+
+
+s="ab*c**def"
+# l=[]
+# for i in s:
+#     if i=="*":
+#         l.pop()
+#     else:
+#         l.append(i)
+# print(l)
+
+
+
+
+# st=[1,2,3,4]
+# ele=st.pop()
+# st.append(ele)
+# print(st)
