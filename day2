@@ -1,0 +1,246 @@
+i=0
+a=0
+num=int(input("enter the number:"))
+while num!=0:
+    d=num%10
+    s=d*10**i
+    a+=s
+    s=0
+    i+=1
+    num//=10
+print(a)
+
+
+armstrong
+num=int(input("enter the number:"))
+temp1=num
+temp2=num
+c=0
+sum=0
+while num!=0:
+    num//=10
+    c+=1
+for i in range(1,c+1):
+    a=temp1%10
+    sum+=a**c
+    temp1//=10
+if sum==temp2:
+    print("armstrong")
+else:
+    print("not a armstrong")
+
+
+
+neon
+sum=0
+num=int(input("enter the number:"))
+a=num*num
+while a!=0:
+    d=a%10
+    sum+=d
+    a//=10
+if num==sum:
+    print("neon")
+else:
+    print("not neon")
+
+
+#magic
+num=int(input("enter the number:"))
+while num>9:
+    sum=0
+    while num!=0:
+        d=num%10
+        sum+=d
+        num//=10
+    num=sum
+if num==1:
+    print("magic")
+else:
+    print("not a magic")
+            
+    
+
+
+composite factors
+num=int(input("enter the number: "))
+c=0
+for i in range(1,num+1):
+    if num%i==0:
+        c+=1
+if c>2:
+    print("composite ")
+else:
+    print("not a composite")
+    
+            
+       
+perfect number
+num=int(input("enter the number:"))
+c=0
+sum=0
+for i in range(1,num):
+    if num%i==0:
+        sum+=i
+if num==sum:
+    print("perfect number")
+else:
+    print("not a perfect") 
+
+
+strong
+fact=1
+sum=0
+num=int(input("enter the number:"))
+temp1=num
+while num!=0:
+    d=num%10
+    for i in range(1,d+1):
+        fact*=i
+    sum+=fact
+    fact=1
+    num//=10
+if temp1==sum:
+    print("strong")
+else:
+    print("not a strong")
+    
+  
+  
+niven
+num=int(input("enter the number:"))
+sum=0
+while num!=0:
+    d=num%10
+    sum+=d
+    num//=10
+if num%sum==0:
+    print("niven")
+else:
+    print("not a niven") 
+
+
+sum of  numbers==product of numbers(spy number?)
+num=int(input("enter the number:"))
+sum=0
+mul=1
+while num!=0:
+    d=num%10
+    sum+=d
+    mul*=d
+    num//=10
+if sum==mul:
+    print("spy")
+else:
+    print("not a spy")
+
+
+
+
+list comprehsion
+lst=[x**2 for x in range(1,11) if x%2==0]       (operation,range,condition)
+print(lst)
+taking input in dynamically           l=list(map(int,input().split()))
+
+list1=[1,2,3,6]
+list2=[0,5,7]
+list3=list1+list2
+list3.sort()
+print(list3)
+
+
+list1=list(map(int,input("enter the elements:").split()))
+list2=list(map(int,input("enter the elements:").split()))
+list3=list1+list2
+list3.sort()
+print(list3)
+
+
+
+
+list1=list(map(int,input("enter the elements:").split()))
+list1[0],list1[-1]=list1[-1],list1[0]
+print(list1)
+
+
+
+removing the duplicate elements
+list1=list(map(int,input("enter the elements:").split()))
+list2=[]
+for i in list1:
+    if i not in list2:
+        list2.append(i)
+print(list2)
+
+
+the elements which are repeated odd no of times.
+list1=[4,7,5,2,2,5,7,3,2,7,4]
+c=0
+list2=[]
+for i in range(len(list1)-1):
+    for j in range(i+1,len(list1)):
+        if list1[i]==list1[j]:
+            c+=1
+    if c%2==0:
+        if list1[i] not in list2:
+            list2.append(list1[i])
+    c=0
+print(list2)
+            
+        
+
+l=[1,3,5,2,4,3,1,5,2]
+l1=[]
+for i in l:
+    if l.count(i)%2!=0 and i not in l1:
+        l1.append(i)
+print(l1)
+        
+
+
+
+ sum of first 3 min numbers   
+list1=[7,6,4,9,3,2,1]
+list1.sort()
+print(sum(list1[0:3]))  
+
+
+sort the even nos in descending to ascending and then odd nos in asc to dsc
+l=[8,5,6,9,10,5,3,11,2,1,12,4]
+l1=[]
+l2=[]
+l3=[]
+for i in l:
+    if i%2==0:
+        l1.append(i)
+    else:
+        l2.append(i)
+l1.sort(reverse=True)
+print(l1)
+l2.sort()
+print(l2)
+l3=l1+l2
+print(l3)
+
+
+
+
+l=[5,6,9,10,5,3,11,2,1,12,4]
+l.sort()
+l1=[]
+for i in l:
+    if i%2==0:
+        l1.append(i)
+        l.remove(i) 
+l1.sort(reverse=True)
+l1.extend(l)
+print(l1)
+
+
+miss=0
+l=[9,6,4,2,3,5,7,0,1]
+l.sort()
+for i in range(0,len(l)):
+    if i!=l[i]:
+        miss=i
+print(miss)
