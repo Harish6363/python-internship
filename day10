@@ -1,0 +1,151 @@
+class node:
+    def __init__(self, root):
+        self.data = root
+        self.left = None
+        self.right = None
+
+
+root = node(10)
+root.left = node(5)
+root.right = node(20)
+root.left.left = node(2)
+root.left.right = node(8)
+
+root.right.left = node(15)
+root.right.right = node(25)
+root.left.left.left = node(1)
+
+
+def postorder(root):
+    if root is None:
+        return
+    postorder(root.left)
+    postorder(root.right)
+    print(root.data, end=" ")
+                
+def inorder(root):
+    if root is None:
+        return
+    inorder(root.left)
+    print(root.data, end=" ")
+    inorder(root.right)
+            
+def preorder(root):
+    if root is None:
+        return
+    print(root.data, end=" ")
+    preorder(root.left)
+    preorder(root.right)
+        
+
+
+postorder(root)
+print()
+inorder(root)
+print()
+preorder(root)
+
+
+
+
+
+
+def level_of_the_node(root):
+    if root is None:
+        return []
+    s = []
+    q = [root]  
+    while len(q) > 0:
+        ele = q.pop(0)   
+        s.append(ele.data)
+        if ele.left is not None:
+            q.append(ele.left)
+        if ele.right is not None:
+            q.append(ele.right)
+    return s
+
+
+print( level_of_the_node(root))
+
+    
+
+
+
+
+def sum_of_nodes(root):
+    if root is None:
+        return 0
+    return root.data+ sum_of_nodes(root.left)+sum_of_nodes(root.right)
+
+
+print(sum_of_nodes(root))
+
+
+
+
+def even_of_nodes(root):
+    if root is None:
+        return 0
+    current=root.data if root.data%2==0 else 0
+    return current+even_of_nodes(root.left)+even_of_nodes(root.right)
+
+print(even_of_nodes(root))
+
+
+
+
+def height_of_the_tree(root):
+    if root==None:
+        return -1
+    else:
+        return 1+max(height_of_the_tree(root.left),height_of_the_tree(root.right))
+        
+print(height_of_the_tree(root))
+
+
+
+l=[]
+l1=[]
+def inorder(root):
+    
+    if root is None:
+        return
+    inorder(root.left)
+    # print(root.data, end=" ")
+    l.append(root.data)
+    inorder(root.right)
+    l1=l
+if l1==l.sort():
+    print("binary")
+else:
+    print("no")
+    
+
+print(inorder(root))
+
+
+
+
+
+
+
+def top_view(root):
+    d={}
+    q=[]
+    root.level=0
+    q.append(root)
+    while len(q)>0:
+        root=q.pop(0)
+        if root.level not in d:
+            d[root.level]=root.data
+        if root.left is not None:
+            q.append(root.left)
+            root.left.level=root.level-1
+        if root.right is not None:
+            q.append(root.right)
+            root.right.level=root.level+1
+        
+    for i in sorted(d):
+        print(d[i],end=" ")
+        
+print(top_view(root))
