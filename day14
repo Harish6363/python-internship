@@ -1,0 +1,97 @@
+MENU = {
+    1: {"name": "Butter Chicken Masala", "price": 450.00},
+    2: {"name": "Veg Thali", "price": 320.00},
+    3: {"name": "Garlic Naan", "price": 60.00},
+    4: {"name": "Mango Lassi", "price": 150.00},
+}
+PARKING_FEE = 100.00
+SERVICE_RATE = 0.05
+C = "₹"
+
+def calculate_total(order, parking):
+    subtotal = sum(MENU[id]['price'] * qty for id, qty in order.items())
+    parking_charge = PARKING_FEE if parking else 0
+    taxable_base = subtotal + parking_charge
+    service_charge = taxable_base * SERVICE_RATE
+    grand_total = taxable_base + service_charge
+    return subtotal, parking_charge, service_charge, grand_total
+
+def main():
+    print("-" * 35)
+    print("Quick Bite Pre-Order (INR)")
+    print("-" * 35)
+    
+    # --- Display Menu ---
+    print("{:<5} {:<20} {:>8}".format("ID", "ITEM", "PRICE"))
+    for id, item in MENU.items():
+        print("{:<5} {:<20} {}{:>7.2f}".format(id, item['name'], C, item['price']))
+    print("-" * 35)
+    
+    order = {}
+    # --- Interactive Ordering Loop ---
+    while True:
+        choice = input("\nEnter item ID to add, or type 'done' to finish: ")
+        
+        if choice.lower() == 'done':
+            break # Exit the loop if user is finished
+
+        try:
+            item_id = int(choice)
+            # This is the "switch-case" block
+            match item_id:
+                case 1 | 2 | 3 | 4: # Matches if item_id is any of these values
+                    item = MENU[item_id]
+                    # Loop to get a valid quantity
+                    while True:
+                        try:
+                            qty = int(input(f"  Quantity for {item['name']}: "))
+                            if qty > 0:
+                                # Add to existing quantity or set new one
+                                order[item_id] = order.get(item_id, 0) + qty
+                                print(f"  --> Added {qty} x {item['name']} to your order.")
+                                break
+                            else:
+                                print("  Quantity must be greater than 0.")
+                        except ValueError:
+                            print("  Invalid input. Please enter a number for quantity.")
+                    
+                case _: # This is the default case for any other number
+                    print("Invalid ID. Please choose an ID from the menu.")
+
+        except ValueError:
+            print("Invalid input. Please enter a valid item ID number.")
+
+    # --- Proceed to Checkout ---
+    if not order:
+        print("\nNo items were ordered. Exiting.")
+        return
+
+    parking = input("\nReserve Parking Slot? (y/n): ").lower() == 'y'
+    payment = input("Payment Method (Card/UPI): ").strip().upper()
+
+    subtotal, parking_charge, service_charge, grand_total = calculate_total(order, parking)
+    
+    # --- Print Final Bill (Same as before) ---
+    print("\n" + "=" * 35)
+    print("     --- CONFIRMATION ---")
+    print("=" * 35)
+    
+    print("\n--- Ordered Items ---")
+    for id, qty in order.items():
+        item = MENU[id]
+        print("{:<5} {:<20} {}{:>7.2f}".format(qty, item['name'], C, item['price'] * qty))
+    print("-" * 35)
+
+    print("{:<25} {}{:>8.2f}".format("Food Subtotal:", C, subtotal))
+    print("{:<25} {}{:>8.2f}".format("Parking Fee:", C, parking_charge))
+    
+    print("{:<25} {}{:>8.2f}".format("Service Charge (5%):", C, service_charge))
+    print("-" * 35)
+    print("{:<25} {}{:>8.2f}".format("*GRAND TOTAL:*", C, grand_total))
+    print("=" * 35)
+    print(f"Payment Method: {payment}")
+    print("\nConfirmed! Your table and reservation are ready.")
+
+# This line starts the program
+if __name__ == "__main__":
+    main()
