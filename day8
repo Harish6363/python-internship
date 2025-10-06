@@ -1,0 +1,171 @@
+linear search
+
+
+arr=[7,5,1,3,8,9,2,6]
+key=10
+for i in range(len(arr)):
+    if arr[i]==key:
+        print("the index is ",i)
+        break
+else:
+    print("element is not found",-1)
+
+
+def search(arr,key):
+    for i in range(len(arr)):
+        if arr[i]==key:
+            print("the index is ",i)
+            break
+    else:
+        print("element is not found",-1)
+arr=[7,5,1,3,8,9,2,6]
+key=2
+search(arr,key)
+
+
+
+
+binary search
+
+
+
+arr=[1,2,3,5,8,10,11,12]
+key=11
+low=0
+high=len(arr)-1
+def binary_search(arr,key,low,high):
+    if low<=high:
+        mid=(low+high)//2
+        if arr[mid]==key:
+            return mid
+        elif arr[mid]<key:
+            return binary_search(arr,key,mid+1,high)
+        elif arr[mid]>key:
+            return binary_search(arr,key,low,mid-1)
+    else:
+        return -1
+    
+res=binary_search(arr,key,low,high)
+print(res)
+
+
+
+first occurence
+
+
+
+l=[1,2,2,3,3,5,6,7,8]
+key=3
+def binary_s(l,key,low,high):
+    if low<=high:
+        mid=(low+high)//2
+        if l[mid]==key:
+            if l[mid-1]==l[mid]:
+                return binary_s(l,key,low,mid-1)
+            else:
+                return mid
+        elif l[mid]<key:
+            return binary_s(l,key,mid+1,high)
+        elif l[mid]>key:
+            return binary_s(l,key,low,mid-1)
+    else:
+        return -1
+res=binary_s(l,key,0,len(l))
+print(res)
+
+
+
+
+last occurance
+
+
+
+l=[1,2,2,3,3,5,6,7,8]
+key=3
+def binary_s(l,key,low,high):
+    if low<=high:
+        mid=(low+high)//2
+        if l[mid]==key:
+            if l[mid+1]==l[mid]:
+                return binary_s(l,key,mid+1,high)
+            else:
+                return mid
+        elif l[mid]<key:
+            return binary_s(l,key,mid+1,high)
+        elif l[mid]>key:
+            return binary_s(l,key,low,mid-1)
+    else:
+        return -1
+res=binary_s(l,key,0,len(l))
+print(res)
+
+
+
+roated sorted array
+
+
+
+l=[5,6,7,0,1,2,3]
+def bin_s(l,low,high):
+    while low<high:
+        mid=(low+high)//2
+        if l[mid]>l[high]:
+            low=mid+1
+        else:
+            high=mid
+    print(l[low])
+res=bin_s(l,0,len(l)-1)
+print(res)
+
+
+
+
+peak element(neighour elemnts must be lesser)
+
+
+arr=[1,2,3,1]#[1,2,3,4,1,5]
+def bin_s(arr,low,high):
+    while low<high:
+        mid=(low+high)//2
+        if arr[mid] >=arr[mid-1] and arr[mid]>=arr[mid+1]:
+            print(arr[mid])
+            break
+        else:
+            return bin_s(arr,mid+1,high)
+res=bin_s(arr,0,len(arr))
+print(res)
+
+
+
+
+
+nums=[1,2,3,1]
+low,high=0,len(nums)-1
+while low<high:
+    mid=(low+high)//2
+    if nums[mid]<nums[mid+1]:
+        low=mid+1
+    else:
+        high=mid
+print(nums[low])
+
+
+
+
+
+sqare root
+
+
+
+
+n=16
+low,high=0,n
+res=0
+while low<=high:
+    mid=(low+high)//2
+    if mid*mid<=n:
+        res=mid
+        low=mid+1
+    else:
+        high=mid-1
+print(res)
