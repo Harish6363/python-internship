@@ -1,0 +1,103 @@
+tuple
+
+t=(1,2,3,4,5,6)
+a=t.index(3)
+b=()
+b=t[0:a]+t[a+1:len(t)]
+print(b)
+
+
+t=(1,2,3,4,5)
+x=reversed(t)
+print(tuple(x))
+
+
+t=(1,2,3,4,5,4,4)
+print(t.count(4))
+
+
+set
+
+subset(<=)
+proper subset(<)
+superset(>=)
+prpoer superset(>)
+union(|)
+intersection(&)
+difference(-)
+symmetric_diff(^)
+
+
+
+
+frozen set
+they are immutable
+it can be ceated by frozenset()
+ex=a=forzenset([1,2,3,4])
+print(a)
+we cannot perform add,diff, and other operations
+
+set compension 
+synatx res={s for s in [1,2,3] if s%2}
+print(res)
+
+res=set()
+res={s for s in [1,2,3] if s%2}
+print(res)
+
+
+
+dictionary
+it is a collection which is unordered, changeable,indexed
+it is written by curly brackets and keys and values
+
+get()=d.get('a')
+modify ANd delete
+same like list
+we can add same like list
+del= entire dict will be deleted
+d[1] that will be deleted in dict
+popitem()==pop()
+
+
+
+d={'a':1,'b':2,'c':3,'d':4,'e':5}
+d1={k:v*2 for (k,v) in d.items()}
+print(d1)
+
+
+
+student_marks={
+    'sita':95,
+    'aakash':80,
+    'anvesh':56,
+    'honey':41,
+    'mallesh':15,
+    'arjun':54,
+    'mani':29
+}
+dict={}
+for student in student_marks:
+    marks=student_marks[student]
+    if marks>90:
+        dict[student]='A+'
+    elif marks>80:
+        dict[student]='A'
+    elif marks>70:
+        dict[student]='B+'
+    elif marks>60:
+        dict[student]='C+'
+    elif marks>50:
+        dict[student]='c'
+    else:
+        dict[student]='F'
+print(dict)
+
+
+
+n=int(input("enter the number:"))
+d = n//3
+e=n//5
+f=n//15
+g=d+e-f
+print(g)
